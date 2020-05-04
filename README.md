@@ -10,7 +10,7 @@ querying the statistics via DNS.
 See also the “cache statistics” section in
 https://manpages.debian.org/stretch/dnsmasq-base/dnsmasq.8.en.html#NOTES
 
-This is fork from not an official Google product.
+This is a fork from not an official Google product.
 
 ## Installation
 
