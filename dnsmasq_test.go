@@ -65,14 +65,11 @@ func TestDnsmasqExporter(t *testing.T) {
 		dnsClient: &dns.Client{
 			SingleInflight: true,
 		},
-		dnsmasqAddr: "localhost:" + port,
-		leasesPath:  "testdata/dnsmasq.leases",
-	}
+		dnsmasqAddr: "localhost:" + port}
 
 	t.Run("first", func(t *testing.T) {
 		metrics := fetchMetrics(t, s)
 		want := map[string]string{
-			"dnsmasq_leases":    "2",
 			"dnsmasq_cachesize": "666",
 			"dnsmasq_hits":      "1",
 			"dnsmasq_misses":    "0",
@@ -87,7 +84,6 @@ func TestDnsmasqExporter(t *testing.T) {
 	t.Run("second", func(t *testing.T) {
 		metrics := fetchMetrics(t, s)
 		want := map[string]string{
-			"dnsmasq_leases":    "2",
 			"dnsmasq_cachesize": "666",
 			"dnsmasq_hits":      "2",
 			"dnsmasq_misses":    "0",
@@ -109,7 +105,6 @@ func TestDnsmasqExporter(t *testing.T) {
 	t.Run("after query", func(t *testing.T) {
 		metrics := fetchMetrics(t, s)
 		want := map[string]string{
-			"dnsmasq_leases":    "2",
 			"dnsmasq_cachesize": "666",
 			"dnsmasq_hits":      "3",
 			"dnsmasq_misses":    "1",
